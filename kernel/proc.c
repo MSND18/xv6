@@ -127,6 +127,8 @@ found:
   p->context.ra = (uint64)forkret;
   p->context.sp = p->kstack + PGSIZE;
 
+  p->syscall_trace = 0;
+
   return p;
 }
 
@@ -296,6 +298,8 @@ fork(void)
   np->state = RUNNABLE;
 
   release(&np->lock);
+
+  np->syscall_trace = p->syscall_trace;
 
   return pid;
 }
