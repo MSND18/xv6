@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "riscv.h": "c"
-    }
+        "riscv.h": "c",
+        "proc.h": "c",
+        "sysinfo.h": "c"
+    },
+    "makefile.configureOnOpen": false
 }
