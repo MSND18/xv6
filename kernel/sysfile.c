@@ -308,12 +308,33 @@ sys_open(void)
       end_op();
       return -1;
     }
-    ilock(ip);
     if(ip->type == T_DIR && omode != O_RDONLY){
       iunlockput(ip);
       end_op();
       return -1;
     }
+
+    int symlink_depth = 0;
+    while(1) { // recursively follow symlinks
+      ilock(ip);
+      if(ip->type == T_SYMLINK && !(omode & O_NOFOLLOW)) {
+        if(++symlink_depth > 10) {
+          // too many layer of symlinks, might be a loop
+          iunlockput(ip);
+          end_op();
+          return -1;
+        }
+        if(readi(ip, 0, (uint64)path, 0, MAXPATH) < 0) {
+          iunlockput(ip);
+          end_op();
+          return -1;
+        }
+        iunlockput(ip);
+      } else {
+        break;
+      }
+    }
+
   }
 
   if(ip->type == T_DEVICE && (ip->major < 0 || ip->major >= NDEV)){
@@ -483,4 +504,43 @@ sys_pipe(void)
     return -1;
   }
   return 0;
+}
+
+uint64
+sys_symlink(void){
+  struct inode* ip;
+  char path[MAXPATH], target[MAXPATH];
+
+  if((argstr(0, path, MAXPATH)) < 0 || argstr(1, path, MAXPATH) < 0)
+    return -1;
+
+  begin_op();//日志操作记录开始
+
+  ip = create(path, T_SYMLINK, 0, 0);
+  if (ip == 0) {
+    goto bad;
+  }
+
+  int len = strlen(target);
+  // write target path len
+  if(writei(ip, 0, (uint64)&len, 0, sizeof(len)) < sizeof(len)) {
+    iunlockput(ip);
+    end_op();
+    return -1;
+  }
+  // write target path
+  if(writei(ip, 0, (uint64)target, sizeof(len), len + 1) < 0) {
+    iunlockput(ip);
+    end_op();
+    return -1;
+  }
+
+  iunlockput(ip);
+  end_op();
+
+  return 0;
+
+  bad:
+    end_op();
+    return -1;
 }
