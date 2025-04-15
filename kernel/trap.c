@@ -66,12 +66,38 @@ usertrap(void)
 
     syscall();
   } else if((which_dev = devintr()) != 0){
-    // ok
-  } else {
+    //ok
+  } 
+  // else if((r_scause() == 13 || r_scause() == 15)) { // 13--页面加载错误, 15--页面写入错误
+  //   // 延迟分配导致的页面错误
+  //   // 第一步：获取导致错误的虚拟地址
+  //   uint64 fault_va = r_stval(); // stval() 返回发生错误的虚拟地址
+  //   char* pa = 0;
+  //   // 第二步：检查发生错误的地址是否在进程的栈空间内
+  //   // 判断小于是为了检查地址是否在合法范围内
+  //   if (fault_va < p->sz && (pa = kalloc()) != 0 && PGROUNDUP(p->trapframe->sp) - 1 < fault_va) {
+  //     // 为栈分配一个新页面
+  //       memset(pa, 0, PGSIZE);
+  //       if (mappages(p->pagetable, PGROUNDDOWN(fault_va), PGSIZE, (uint64)pa, PTE_W | PTE_X | PTE_R | PTE_U) != 0) {
+  //         kfree(pa);
+  //         printf("usertrap: 栈映射失败\n");
+  //         p->killed = 1;
+  //     }
+  //   } else {
+  //     printf("usertrap: 页面错误发生在无效地址 %p\n", fault_va);
+  //     p->killed = 1;
+  //   }
+  // } 
+  else {
+    uint64 va = r_stval();
+    if((r_scause() == 13 || r_scause() == 15) && uvm_should_allocate(va)){
+      uvm_lazy_allocate(va);
+    } else {
     printf("usertrap(): unexpected scause %p pid=%d\n", r_scause(), p->pid);
     printf("            sepc=%p stval=%p\n", r_sepc(), r_stval());
     p->killed = 1;
   }
+}
 
   if(p->killed)
     exit(-1);
@@ -81,7 +107,9 @@ usertrap(void)
     yield();
 
   usertrapret();
+  
 }
+
 
 //
 // return to user space

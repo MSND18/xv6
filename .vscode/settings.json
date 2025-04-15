@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "*.tcc": "c",
+        "exception": "c",
+        "memory_resource": "c",
+        "iosfwd": "c",
+        "new": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "streambuf": "c",
+        "spinlock.h": "c",
+        "proc.h": "c",
+        "defs.h": "c"
+    }
+}

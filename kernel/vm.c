@@ -5,6 +5,8 @@
 #include "riscv.h"
 #include "defs.h"
 #include "fs.h"
+#include "spinlock.h"
+#include "proc.h"
 
 /*
  * the kernel's page table.
@@ -181,9 +183,11 @@ uvmunmap(pagetable_t pagetable, uint64 va, uint64 npages, int do_free)
 
   for(a = va; a < va + npages*PGSIZE; a += PGSIZE){
     if((pte = walk(pagetable, a, 0)) == 0)
-      panic("uvmunmap: walk");
+      // panic("uvmunmap: walk");
+      continue;
     if((*pte & PTE_V) == 0)
-      panic("uvmunmap: not mapped");
+      // panic("uvmunmap: not mapped");
+      continue;
     if(PTE_FLAGS(*pte) == PTE_V)
       panic("uvmunmap: not a leaf");
     if(do_free){
@@ -315,9 +319,11 @@ uvmcopy(pagetable_t old, pagetable_t new, uint64 sz)
 
   for(i = 0; i < sz; i += PGSIZE){
     if((pte = walk(old, i, 0)) == 0)
-      panic("uvmcopy: pte should exist");
+      // panic("uvmcopy: pte should exist");
+      continue;
     if((*pte & PTE_V) == 0)
-      panic("uvmcopy: page not present");
+      // panic("uvmcopy: page not present");
+      continue;
     pa = PTE2PA(*pte);
     flags = PTE_FLAGS(*pte);
     if((mem = kalloc()) == 0)
@@ -356,6 +362,8 @@ copyout(pagetable_t pagetable, uint64 dstva, char *src, uint64 len)
 {
   uint64 n, va0, pa0;
 
+  if(uvm_should_allocate(dstva))
+    uvm_lazy_allocate(dstva);
   while(len > 0){
     va0 = PGROUNDDOWN(dstva);
     pa0 = walkaddr(pagetable, va0);
@@ -381,6 +389,8 @@ copyin(pagetable_t pagetable, char *dst, uint64 srcva, uint64 len)
 {
   uint64 n, va0, pa0;
 
+  if(uvm_should_allocate(srcva))
+    uvm_lazy_allocate(srcva);
   while(len > 0){
     va0 = PGROUNDDOWN(srcva);
     pa0 = walkaddr(pagetable, va0);
@@ -438,5 +448,31 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
     return 0;
   } else {
     return -1;
+  }
+}
+//判断传入的va是否是之前惰性分配分配的地址，是1否0
+//uvm->user virtual memory
+int uvm_should_allocate(uint64 va){
+    pte_t* pte;
+    proc_t* p = myproc();
+
+    return va < p->sz //va在内存范围内
+        && PGROUNDDOWN(va) != r_sp() //确保地址不在guard page中 
+        && (((pte = walk(p->pagetable, va, 0)) == 0) || ((*pte & PTE_V) == 0));
+}
+
+void uvm_lazy_allocate(uint64 va){
+  proc_t* p = myproc();
+  char* pa = kalloc();
+  if(pa == 0){
+    
+  } else {
+    memset(pa, 0, PGSIZE);//申请一段PGSIZE的内存
+    if(mappages(p->pagetable, PGROUNDDOWN(va), PGSIZE, (uint64)pa
+                , PTE_W | PTE_X | PTE_R | PTE_U) != 0){//mappages返回0表示映射成功，不为0映射不成功
+      printf("惰性分配：不能映射物理地址\n");
+      kfree(pa);
+      p->killed = 1;
+    }
   }
 }

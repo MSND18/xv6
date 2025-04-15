@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a49ca857-03f4-40fa-954b-9ca4dd316a42" name="Changes" comment="filesystem">
+      <change beforePath="$PROJECT_DIR$/kernel/riscv.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/riscv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/sysproc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/trap.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/trap.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="util" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="util" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MSND18"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MSND18/xv6.git",
+    "accountId": "7c3ae5d4-c73b-4d22-9d88-786325c18253"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/simon/xv6-labs-2020/kernel/proc.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/simon/xv6-labs-2020/kernel/proc.c" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="3.5" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2v1sdwSEHuRWoVrYV3ndvXsnxdr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C/C++ 文件.kill.c.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lazy&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/simon/xv6-labs-2020&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" side_tool="true" />
+      <window_info id="Merge Requests" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" />
+      <window_info id="Learn" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.2345612" visible="true" weight="0.21248198" />
+      <window_info id="Commit" order="1" weight="0.18795094" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.18795094" />
+      <window_info id="Welcome to GitHub Copilot" order="4" show_stripe_button="false" sideWeight="0.7654388" side_tool="true" weight="0.30266955" />
+      <window_info anchor="bottom" id="NextEditPredictionSettingsToolwindow" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="Python Packages" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Vcpkg" />
+      <window_info anchor="bottom" id="clangd" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32913473" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3296767" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="bottom" id="CMake" order="5" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.17147806" />
+      <window_info anchor="right" id="PR AI Assistant" />
+      <window_info anchor="right" id="documentation.v2" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="Python Console" />
+      <window_info anchor="right" id="DeepSeek Tools" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.3300866" />
+      <window_info anchor="right" id="Database" order="2" weight="0.33032227" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info anchor="right" id="Meson" order="5" />
+      <window_info anchor="right" id="make" order="6" side_tool="true" weight="0.33032227" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="7" weight="0.3300866" />
+      <window_info active="true" anchor="right" id="GitHub Copilot Chat" order="8" visible="true" weight="0.3300866" />
+    </layout>
+  </component>
+  <component name="RunManager">
+    <configuration name="kill.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="xv6-labs-2020" TARGET_NAME="kill.c" CONFIG_NAME="kill.c">
+      <option name="sourceFile" value="user/kill.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ 文件.kill.c" />
+        <item itemvalue="C/C++ 文件.kill.c" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a49ca857-03f4-40fa-954b-9ca4dd316a42" name="Changes" comment="" />
+      <created>1743324007432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743324007432</updated>
+      <workItem from="1743324009577" duration="47000" />
+      <workItem from="1743327302880" duration="9000" />
+      <workItem from="1743327331691" duration="9258000" />
+      <workItem from="1743405702776" duration="116000" />
+      <workItem from="1743405837697" duration="10702000" />
+      <workItem from="1743594758095" duration="697000" />
+      <workItem from="1744359165293" duration="254000" />
+      <workItem from="1744359426820" duration="146000" />
+      <workItem from="1744359580925" duration="306000" />
+    </task>
+    <task id="LOCAL-00001" summary="filesystem">
+      <option name="closed" value="true" />
+      <created>1743476143050</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743476143050</updated>
+    </task>
+    <task id="LOCAL-00002" summary="filesystem">
+      <option name="closed" value="true" />
+      <created>1743476216653</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743476216653</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.pl" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="filesystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="filesystem" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
