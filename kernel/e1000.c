@@ -143,7 +143,7 @@ e1000_recv(void)
 
     struct rx_desc *desc = &rx_ring[idx];
 
-    if((desc->status & E1000_RXD_STAT_DD) != 0){
+    if((desc->status & E1000_RXD_STAT_DD) == 0){
       return;
     }
 
