@@ -112,8 +112,8 @@ uint64
 sys_sysinfo(void)
 {
   struct sysinfo info;
-  freebytes(&info.freemem);//空闲内存
-  procnum(&info.nproc);//进程数量
+  get_freebytes(&info.freemem);//空闲内存
+  get_procnum(&info.nproc);//进程数量
 
   uint64 addr;
   if(argaddr(0, &addr) < 0)

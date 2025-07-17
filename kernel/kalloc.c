@@ -82,14 +82,16 @@ kalloc(void)
 }
 
 void
-freebytes(uint64* dst){
+get_freebytes(uint64* dst){
   *dst = 0;
   struct run *p = kmem.freelist;
 
+  //加锁，遍历链表
   acquire(&kmem.lock);
   while(p){
     *dst += PGSIZE;
     p = p->next;
   }
+  //遍历结束，解锁
   release(&kmem.lock);
 }

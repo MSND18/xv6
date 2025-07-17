@@ -698,7 +698,7 @@ procdump(void)
   }
 }
 
-void procnum(uint64* dst){
+void get_procnum(uint64* dst){
   *dst = 0;
   struct proc *p;
   for(p = proc; p < &proc[NPROC]; p++){
